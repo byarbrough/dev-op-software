@@ -1,4 +1,3 @@
-
 one_digit_words = {
         '0': ["zero"],
         '1': ["one"],
@@ -67,8 +66,13 @@ def converter(n):
         if len(sum_list[i:]) > 1 and not skip:
             word.append(large_sum_words[len(sum_list[i:]) - 2])
             skip = True
-    
+
+    # Uncomment for type debugging for "word"
+    # print(word, "is of type:", type(word))
+    # print("***")
     word = " ".join(map(str.strip, word))
+    # Uncomment for type debugging for "word"
+    # print(word, "is of type:", type(word))
     return word[0].lstrip().upper() + word[1:].rstrip().lower() if "negative" not in word else word[:11].lstrip() + word[11].upper() + word[12:].rstrip().lower()
 
 if __name__ == "__main__":
