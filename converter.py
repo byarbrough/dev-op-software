@@ -1,14 +1,16 @@
+import os
+
 one_digit_words = {
         '0': ["zero"],
         '1': ["one"],
         '2': ["two", "twen"],
-        '3': ["three", "thir"],
+         3 : ["three", "thir"],
         '4': ["four", "for"],
         '5': ["five", "fif"],
         '6': ["six"],
         '7': ["seven"],
         '8': ["eight"],
-        '9': ["nine"],
+        '9': "nine",
     }
 
 two_digit_words = ["ten", "eleven", "twelve"]
@@ -17,6 +19,7 @@ large_sum_words = ["thousand", "million", "billion", "trillion", "quadrillion", 
 
 def converter(n):
     word = []
+    blankword = ""
 
     if n.startswith('-'):
         word.append("(negative)")
