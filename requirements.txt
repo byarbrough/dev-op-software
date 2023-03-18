@@ -1,5 +1,4 @@
-pre-commit
-black
-mypy
-pyflakes
-
+# List project dependencies here.
+# Typically you want to pin to a version
+# Use `pip install -r requirements.txt`
+# See: https://pip.pypa.io/en/stable/reference/requirements-file-format/
