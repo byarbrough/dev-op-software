@@ -4,7 +4,7 @@ name: Python lint
 on: [push]
 
 jobs:
-  build:
+  lint:
 
     runs-on: ubuntu-latest
 
