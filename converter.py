@@ -30,6 +30,7 @@ large_sum_words = [
 
 
 def convert(n):
+    """convert() takes an integer and returns number written out in words"""
     word = []
     blankword = ""
 
