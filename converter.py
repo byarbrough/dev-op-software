@@ -29,7 +29,7 @@ large_sum_words = [
 ]
 
 
-def converter(n):
+def convert(n):
     word = []
     blankword = ""
 
@@ -124,6 +124,6 @@ if __name__ == "__main__":
             if n == "exit":
                 break
             int(n)
-            print(n, "-->", converter(n))
+            print(n, "-->", convert(n))
         except ValueError:
             print("Error: Invalid Number!")
