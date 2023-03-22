@@ -1,5 +1,3 @@
-import os
-
 one_digit_words = {
     "0": ["zero"],
     "1": ["one"],
@@ -32,7 +30,6 @@ large_sum_words = [
 def convert(n):
     """convert() takes an integer and returns number written out in words"""
     word = []
-    blankword = ""
 
     if n.startswith("-"):
         word.append("(negative)")
