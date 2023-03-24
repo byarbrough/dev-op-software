@@ -1,3 +1,11 @@
 [flake8]
+# play nicely with black formatting
+# https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#flake8
 extend-ignore = E203
 max-line-length = 88
+
+exclude =
+    # No need to traverse our git directory
+    .git,
+    # There's no value in checking cache directories
+    __pycache__
