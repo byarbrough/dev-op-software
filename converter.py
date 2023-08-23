@@ -1,19 +1,19 @@
-one_digit_words: dict[str, list[str]] = {
+one_digit_words = {
     "0": ["zero"],
     "1": ["one"],
     "2": ["two", "twen"],
-    "3": ["three", "thir"],
+    3: ["three", "thir"],
     "4": ["four", "for"],
     "5": ["five", "fif"],
     "6": ["six"],
     "7": ["seven"],
     "8": ["eight"],
-    "9": ["nine"],
+    "9": "nine",
 }
 
-two_digit_words: list[str] = ["ten", "eleven", "twelve"]
-hundred: str = "hundred"
-large_sum_words: list[str] = [
+two_digit_words = ["ten", "eleven", "twelve"]
+hundred = "hundred"
+large_sum_words = [
     "thousand",
     "million",
     "billion",
@@ -31,6 +31,10 @@ def convert(n):
     """convert() takes an integer and returns number written out in words"""
     word = []
 
+    # Zero is a special case
+    if n == "0":
+        return "Zero"
+    
     if n.startswith("-"):
         word.append("(negative)")
         n = n[1:]
@@ -102,17 +106,35 @@ def convert(n):
             word.append(large_sum_words[len(sum_list[i:]) - 2])
             skip = True
 
+    '''
+    This section shows the issues with unexpected type changes.
+    The original code converts list[str] to str without notice.
+    Mypy complains about this, so you can fix it my declaring
+    a new variable of type str.
+    '''
+    # # This block is the original code
     # Uncomment for type debugging for "word"
     # print(word, "is of type:", type(word))
     # print("***")
     word = " ".join(map(str.strip, word))
     # Uncomment for type debugging for "word"
-    # print(word, "is of type:", type(word))
+    print(word, "is of type:", type(word))
     return (
         word[0].lstrip().upper() + word[1:].rstrip().lower()
         if "negative" not in word
         else word[:11].lstrip() + word[11].upper() + word[12:].rstrip().lower()
     )
+    # # This block is the fix for mypy
+    # print(word, "is of type:", type(word))
+    # result_word = " ".join(map(str.strip, word))
+    # # Uncomment for type debugging for "word"
+    # # print(word, "is of type:", type(word))
+    # # print(result_word, "is of type:", type(result_word))
+    # return (
+    #     result_word[0].lstrip().upper() + result_word[1:].rstrip().lower()
+    #     if "negative" not in result_word
+    #     else result_word[:11].lstrip() + result_word[11].upper() + result_word[12:].rstrip().lower()
+    # )
 
 
 if __name__ == "__main__":
