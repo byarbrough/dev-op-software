@@ -1,14 +1,36 @@
-'''
+"""
 Demo program for how black, flake8, and mypy can help you
 dev operable Python!
-'''
+"""
 import os
 
 
 two_digit_words = ["ten", "eleven", "twelve"]
 hundred = "hundred"
-large_sum_words = ["thousand","million","billion","trillion","quadrillion","quintillion","sextillion","septillion","octillion","nonillion",]
-one_digit_words = {"0": ["zero"],"1": ["one"],"2": ["two", "twen"],3: ["three", "thir"],"4": ["four", "for"], "5": ["five", "fif"], "6": ["six"], "7": ["seven"],"8": ["eight"], "9": "nine", }
+large_sum_words = [
+    "thousand",
+    "million",
+    "billion",
+    "trillion",
+    "quadrillion",
+    "quintillion",
+    "sextillion",
+    "septillion",
+    "octillion",
+    "nonillion",
+]
+one_digit_words = {
+    "0": ["zero"],
+    "1": ["one"],
+    "2": ["two", "twen"],
+    3: ["three", "thir"],
+    "4": ["four", "for"],
+    "5": ["five", "fif"],
+    "6": ["six"],
+    "7": ["seven"],
+    "8": ["eight"],
+    "9": "nine",
+}
 
 
 def convert(n):
@@ -18,7 +40,7 @@ def convert(n):
     # Zero is a special case
     if n == "0":
         return "Zero"
-    
+
     if n.startswith("-"):
         word.append("(negative)")
         n = n[1:]
@@ -90,12 +112,12 @@ def convert(n):
             word.append(large_sum_words[len(sum_list[i:]) - 2])
             skip = True
 
-    '''
+    """
     This section shows the issues with unexpected type changes.
     The original code converts list[str] to str without notice.
     Mypy complains about this, so you can fix it my declaring
     a new variable of type str.
-    '''
+    """
     # # This block is the original code
     # Uncomment for type debugging for "word"
     # print(word, "is of type:", type(word))
